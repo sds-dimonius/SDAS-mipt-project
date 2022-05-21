@@ -181,18 +181,18 @@ int main(int argc, char** argv)
         
         cin >> b;
         if (b == 'y') {
-            cout << "Enter a new name, including .db" << endl;
+            cout << "Enter a new name for a database" << endl;
             string name;
             cin >> name;
-            Tablecreation(name);
+            Tablecreation(name+".db");
         };
         cout << "Work with existing database? y/n" << endl;
         cin >> b;
         if (b == 'y') {
-            cout << "Enter a name, including .db" << endl;
+            cout << "Enter a name, including" << endl;
             string name;
             cin >> name;
-            Tablemodification(name);
+            Tablemodification(name+".db");
         }
         cout << "Exit the program? y/n" << endl;
         cin >> b;
