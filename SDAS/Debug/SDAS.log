@@ -1,0 +1,3 @@
+﻿  SDAS-main.cpp
+C:\C++\SDAS\SDAS\SDAS-main.cpp(144,11): warning C4101: messaggeError: неиспользованная локальная переменная
+  SDAS.vcxproj -> C:\C++\SDAS\SDAS\Debug\SDAS.exe

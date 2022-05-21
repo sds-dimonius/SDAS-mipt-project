@@ -9,3 +9,6 @@ Planned features:
 -creation and application of templates for data processing
 
 Realised features:
+- sqlite3 integration
+- creation of a database
+- insertion and deletion of an entry
