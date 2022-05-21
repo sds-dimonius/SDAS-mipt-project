@@ -1,0 +1,3 @@
+C:\C++\SDAS\SDAS\Debug\SDAS.exe
+C:\C++\SDAS\SDAS\Debug\SDAS.vcxproj.CopyComplete
+C:\C++\SDAS\SDAS\Debug\sqlite3.dll
