@@ -1,4 +1,5 @@
 # SDAS-mipt-project
+(Sidelnicov Dmitrii Accounting Sheet)
 Accounting program
 
 Planned features:
