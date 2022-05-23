@@ -13,3 +13,4 @@ Realised features:
 - sqlite3 integration
 - creation of a database
 - insertion and deletion of an entry
+- GUI for creation/modification of DBs
