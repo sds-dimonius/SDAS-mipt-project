@@ -10,32 +10,18 @@
 
 using namespace std;
 
+string id = "";
 
-class BankAccount
-{
-public:
-	static const int MAX_SIZE = 30;
+string name = "";
 
-	BankAccount(int = 0, string = "",
-		string = "", double = 0.0);
-	~BankAccount();
+string sur = "";
 
-	void setAccountNumber(int);
-	void setLastName(string);
-	void setFirstName(string);
-	void setBalance(double);
+string age = "";
 
-	int getAccountNumber() const;
-	string getFirstName() const;
-	string getLastName() const;
-	double getBalance() const;
+string addr = "";
 
-private:
-	int accountNumber;
-	char firstName[MAX_SIZE];
-	char lastName[MAX_SIZE];
-	double balance;
-};
+string sal = "";
+
 
 static int callback(void* data, int argc, char** argv, char** azColName)
 {
@@ -73,38 +59,208 @@ auto Tablecreation(string name) {
         std::cout << "Table created Successfully" << std::endl;
     sqlite3_close(DB);
 }
+auto dataform() {
+
+   id = "";
+
+   name = "";
+
+   sur = "";
+
+   age = "";
+
+   addr = "";
+
+   sal = "";
+    sf::RenderWindow form(sf::VideoMode(960, 480), "SDAS form");
+    sf::Font font;
+    font.loadFromFile("images/Impact Regular.ttf");
+    sf::Text text("", font, 60);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    
+    text.setPosition(100, 100);
+    form.draw(text);
+
+    sf::Event event;
+    sf::String userInput;
+    sf::Text userText("", font, 60);
+
+    userText.setPosition(360, 300);
+
+    while (form.isOpen())
+    {
+        while (id == "") {
+            text.setString("Enter id");
+            while (form.pollEvent(event))
+            {
+                if (event.type == sf::Event::TextEntered && !sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+                {
+                    if (event.text.unicode == '\b') {
+                        userInput.erase(userInput.getSize() - 1, 1);
+                        userText.setString(userInput);
+                    }
+                    else if (event.text.unicode < 128)
+                    {
+                        userInput += event.text.unicode;
+                        userText.setString(userInput);
+                    }
+                }
+
+            }
+            form.clear();
+            form.draw(userText);
+            form.draw(text);
+            form.display();
+
+            if (userInput!="" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) { id = userInput; userInput = ""; form.clear();
+            }
+        }
+        while (name == "") {
+            text.setString("Enter name");
+            while (form.pollEvent(event))
+            {
+                if (event.text.unicode == '\b') {
+                    userInput.erase(userInput.getSize() - 1, 1);
+                    userText.setString(userInput);
+                }
+                else if (event.type == sf::Event::TextEntered && !sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+                {
+                    if (event.text.unicode < 128)
+                    {
+                        userInput += event.text.unicode;
+                        userText.setString(userInput);
+                    }
+                }
+
+            }
+            form.clear();
+            form.draw(userText);
+            form.draw(text);
+            form.display();
+
+            if (userInput != "" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) { name = userInput; userInput = ""; form.clear();
+            }
+        }
+        while (sur == "") {
+            text.setString("Enter surname");
+            while (form.pollEvent(event))
+            {
+                if (event.text.unicode == '\b') {
+                    userInput.erase(userInput.getSize() - 1, 1);
+                    userText.setString(userInput);
+                }
+                else if (event.type == sf::Event::TextEntered && !sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+                {
+                    if (event.text.unicode < 128)
+                    {
+                        userInput += event.text.unicode;
+                        userText.setString(userInput);
+                    }
+                }
+
+            }
+            form.clear();
+            form.draw(userText);
+            form.draw(text);
+            form.display();
+
+            if (userInput != "" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) { sur = userInput; userInput = ""; form.clear();
+            }
+        }
+        while (age == "") {
+            text.setString("Enter age");
+            while (form.pollEvent(event))
+            {
+                if (event.text.unicode == '\b') {
+                    userInput.erase(userInput.getSize() - 1, 1);
+                    userText.setString(userInput);
+                }
+                else if (event.type == sf::Event::TextEntered && !sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+                {
+                    if (event.text.unicode < 128)
+                    {
+                        userInput += event.text.unicode;
+                        userText.setString(userInput);
+                    }
+                }
+
+            }
+            form.clear();
+            form.draw(userText);
+            form.draw(text);
+            form.display();
+
+            if (userInput != "" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) { age = userInput; userInput = ""; form.clear();
+            }
+        }
+        while (addr == "") {
+            text.setString("Enter address");
+            while (form.pollEvent(event))
+            {
+                if (event.text.unicode == '\b') {
+                    userInput.erase(userInput.getSize() - 1, 1);
+                    userText.setString(userInput);
+                }
+                else if (event.type == sf::Event::TextEntered && !sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+                {
+                    if (event.text.unicode < 128)
+                    {
+                        userInput += event.text.unicode;
+                        userText.setString(userInput);
+                    }
+                }
+
+            }
+            form.clear();
+            form.draw(userText);
+            form.draw(text);
+            form.display();
+
+            if (userInput != "" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) { addr = userInput; userInput = ""; form.clear();}
+        }
+        while (sal == "") {
+            text.setString("Enter salary");
+            while (form.pollEvent(event))
+            {
+                if (event.text.unicode == '\b') {
+                    userInput.erase(userInput.getSize() - 1, 1);
+                    userText.setString(userInput);
+                }
+                else if (event.type == sf::Event::TextEntered && !sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+                {
+                    if (event.text.unicode < 128)
+                    {
+                        userInput += event.text.unicode;
+                        userText.setString(userInput);
+                    }
+                }
+
+            }
+            form.clear();
+            form.draw(userText);
+            form.draw(text);
+            form.display();
+
+            if (userInput != "" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) { sal = userInput; form.close(); form.clear();
+            }
+        }
+    }
+
+    return (id,name,sur,age,addr,sal);
+
+}
 
 auto Tableinsert(const char* c) {
     sqlite3* DB;
     char* messaggeError;
     int exit = sqlite3_open(c, &DB);
     string query = "SELECT * FROM PERSON;";
-
-    cout << "Enter persons ID" << endl;
-    string id;
-    cin >> id;
+        
     
-    cout << "Enter persons Name" << endl;
-    string name;
-    cin >> name;
-
-    cout << "Enter persons Surname" << endl;
-    string sur;
-    cin >> sur;
-   
-    cout << "Enter persons Age" << endl;
-    string age;
-    cin >> age;
-
-    cout << "Enter persons Adress" << endl;
-    string addr;
-    cin >> addr;
-  
-    cout << "Enter persons Salary" << endl;
-    string sal;
-    cin >> sal;
     
-
+    dataform();
+    
     string sql = "INSERT INTO PERSON VALUES(" + id + ", '" + name + "', '" + sur + "', " + age + ", '" + addr + "', " + sal + ");";
 
     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
@@ -117,6 +273,132 @@ auto Tableinsert(const char* c) {
 
 }
 
+bool insertconfirmation() {
+
+    sf::RenderWindow form(sf::VideoMode(1100, 480), "SDAS form conf");
+    sf::Font font;
+    font.loadFromFile("images/Impact Regular.ttf");
+    sf::Text text("", font, 60);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setString("Want to add a record?");
+    text.setPosition(100, 100);
+
+    sf::Vector2i position;
+
+    sf::Event event;
+    
+
+    sf::Texture button_4;
+    button_4.loadFromFile("images/YES.png");
+    sf::Sprite yes;
+    yes.setTexture(button_4);
+    yes.setPosition(50, 300);
+
+    sf::Texture button_5;
+    button_5.loadFromFile("images/NO.png");
+    sf::Sprite no;
+    no.setTexture(button_5);
+    no.setPosition(550, 300);
+
+    
+
+    while (form.isOpen())
+    {
+        while (form.pollEvent(event))
+        {
+            position = sf::Mouse::getPosition(form);
+            form.clear();
+            form.draw(text);
+            form.draw(yes);
+            form.draw(no);
+            form.display();
+
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                if (position.x > 50 && position.x < 530 && position.y > 300 && position.y < 372) {
+
+                    form.close(); return 1;
+                }
+                if (position.x > 550 && position.x < 1030 && position.y > 300 && position.y < 372) {
+
+                    form.close(); return 0;
+                }
+
+            }
+
+
+
+        }
+
+
+
+    }
+}
+
+bool deleteconfirmation() {
+
+    sf::RenderWindow form(sf::VideoMode(1100, 480), "SDAS form conf");
+    sf::Font font;
+    font.loadFromFile("images/Impact Regular.ttf");
+    sf::Text text("", font, 60);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setString("Want to delete a record?");
+    text.setPosition(100, 100);
+
+    sf::Vector2i position;
+
+    sf::Event event;
+
+
+    sf::Texture button_4;
+    button_4.loadFromFile("images/YES.png");
+    sf::Sprite yes;
+    yes.setTexture(button_4);
+    yes.setPosition(50, 300);
+
+    sf::Texture button_5;
+    button_5.loadFromFile("images/NO.png");
+    sf::Sprite no;
+    no.setTexture(button_5);
+    no.setPosition(550, 300);
+
+
+
+    while (form.isOpen())
+    {
+        while (form.pollEvent(event))
+        {
+            position = sf::Mouse::getPosition(form);
+            form.clear();
+            form.draw(text);
+            form.draw(yes);
+            form.draw(no);
+            form.display();
+
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                if (position.x > 50 && position.x < 530 && position.y > 300 && position.y < 372) {
+
+                    form.close(); return 1;
+                }
+                if (position.x > 550 && position.x < 1030 && position.y > 300 && position.y < 372) {
+
+                    form.close(); return 0;
+                }
+
+            }
+
+
+
+        }
+
+
+
+    }
+}
+
 auto Tabledeletion(const char* c) {
 
     sqlite3* DB;
@@ -125,8 +407,56 @@ auto Tabledeletion(const char* c) {
     string query = "SELECT * FROM PERSON;";
     string sql;
 
-    cout << "Enter ID to delete" << endl;
-    cin >> sql;
+    
+    sf::RenderWindow form(sf::VideoMode(960, 480), "SDAS form");
+    sf::Font font;
+    font.loadFromFile("images/Impact Regular.ttf");
+    sf::Text text("", font, 60);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    text.setPosition(100, 100);
+    form.draw(text);
+
+    sf::Event event;
+    sf::String userInput;
+    sf::Text userText("", font, 60);
+
+    userText.setPosition(360, 300);
+    id = "";
+
+    while (form.isOpen())
+    {
+        while (id == "") {
+            text.setString("Enter id");
+            while (form.pollEvent(event))
+            {
+                if (event.type == sf::Event::TextEntered && !sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+                {
+                    if (event.text.unicode == '\b') {
+                        userInput.erase(userInput.getSize() - 1, 1);
+                        userText.setString(userInput);
+                    }
+                    else if (event.text.unicode < 128)
+                    {
+                        userInput += event.text.unicode;
+                        userText.setString(userInput);
+                    }
+                }
+
+            }
+            form.clear();
+            form.draw(userText);
+            form.draw(text);
+            form.display();
+
+            if (userInput != "" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+                id = userInput; userInput = ""; form.close();
+            }
+        }
+    }
+    sql = id;
+
     sql = "DELETE FROM PERSON WHERE ID = "+sql+"; ";
     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
     if (exit != SQLITE_OK) {
@@ -152,18 +482,18 @@ auto Tablemodification(string name) {
     char ib = 'y';
 
     while (ib == 'y') {
-        cout << "Want to insert a person into database? y/n" << endl;
-        cin >> ib;
-        if (ib == 'y') { Tableinsert(c); }
+        bool t = insertconfirmation();
+        if (t==1) { Tableinsert(c); }
+        else { ib = 'n'; }
 
     }
 
     ib = 'y';
 
     while (ib == 'y') {
-        cout << "Want to delete a person from database? y/n" << endl;
-        cin >> ib;
-        if (ib == 'y') { Tabledeletion(c); }
+        bool t = deleteconfirmation();
+        if (t == 1) { Tabledeletion(c); }
+        else { ib = 'n'; }
 
     }
 
@@ -173,31 +503,117 @@ auto Tablemodification(string name) {
 }
 
 
+string nameform() {
+    sf::RenderWindow form(sf::VideoMode(960, 480), "SDAS form");
+    sf::Font font; 
+    font.loadFromFile("images/Impact Regular.ttf");
+    sf::Text text("", font, 60);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setString("Enter Database name");
+    text.setPosition(100, 100);
+    form.draw(text);
+
+    sf::Event event;
+    sf::String userInput;
+    sf::Text userText("", font, 60);
+    
+    userText.setPosition(360, 300);
+   
+    while (form.isOpen())
+    {
+        while (form.pollEvent(event))
+        {
+            if (event.text.unicode == '\b') {
+                userInput.erase(userInput.getSize() - 1, 1);
+                userText.setString(userInput);
+            }
+            else if (event.type == sf::Event::TextEntered)
+            {
+                if (event.text.unicode < 128)
+                {
+                    userInput += event.text.unicode;
+                    userText.setString(userInput);
+                }
+            }
+            
+        }
+        form.clear();
+        form.draw(userText);
+        form.draw(text);
+        form.display();
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) { form.close(); }
+    }
+
+    return userInput;
+    
+}
+
+
 int main(int argc, char** argv)
 {   
-    char b;
-    while (1 > 0) {
-        cout << "Create a new database?   y/n" << endl;
-        
-        cin >> b;
-        if (b == 'y') {
-            cout << "Enter a new name for a database" << endl;
-            string name;
-            cin >> name;
-            Tablecreation(name+".db");
-        };
-        cout << "Work with existing database? y/n" << endl;
-        cin >> b;
-        if (b == 'y') {
-            cout << "Enter a name, including" << endl;
-            string name;
-            cin >> name;
-            Tablemodification(name+".db");
-        }
-        cout << "Exit the program? y/n" << endl;
-        cin >> b;
-        if (b == 'y') {
-            break;
+    sf::RenderWindow window(sf::VideoMode(1080, 640), "SDAS");
+    sf::Texture logo;
+    logo.loadFromFile("images/SDAS_logo.png");
+    sf::Sprite SDAS_logo;
+    SDAS_logo.setTexture(logo);
+    SDAS_logo.setPosition(0, 0);
+
+    sf::Texture button_1;
+    button_1.loadFromFile("images/button_1.png");
+    sf::Sprite button1;
+    button1.setTexture(button_1);
+    button1.setPosition(300, 300);
+    
+    sf::Texture button_2;
+    button_2.loadFromFile("images/button_2.png");
+    sf::Sprite button2;
+    button2.setTexture(button_2);
+    button2.setPosition(300, 400);
+
+    sf::Texture button_3;
+    button_3.loadFromFile("images/button_3.png");
+    sf::Sprite button3;
+    button3.setTexture(button_3);
+    button3.setPosition(300, 500);
+
+    sf::Vector2i position;
+    
+    
+
+    while (window.isOpen())
+    {
+        position = sf::Mouse::getPosition(window);
+
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+
+            window.clear();
+            window.draw(SDAS_logo);
+            window.draw(button1);
+            window.draw(button2);
+            window.draw(button3);
+            window.display();
+
+
+
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                if (position.x > 300 && position.x < 780 && position.y > 300 && position.y < 372) {
+
+                    Tablecreation(nameform() + ".db");
+                }
+                if (position.x > 300 && position.x < 780 && position.y > 400 && position.y < 472) {
+
+                    Tablemodification(nameform() + ".db");
+                }
+                if (position.x > 300 && position.x < 780 && position.y > 500 && position.y < 572 or event.type==sf::Event::Closed) {
+
+                    window.close();
+                }
+            };
         }
     }
     return (0);
